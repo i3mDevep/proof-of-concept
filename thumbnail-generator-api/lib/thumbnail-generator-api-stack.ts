@@ -10,6 +10,7 @@ import {
   ThumbnailEnvironment,
 } from '../environment/thumbnail.environment';
 import { CdnImages } from '../contructors/cdn-images/infra';
+import { ListImages } from '../contructors/list-images/infra';
 
 export class ThumbnailGeneratorApiStack extends cdk.Stack {
   constructor(
@@ -65,8 +66,18 @@ export class ThumbnailGeneratorApiStack extends cdk.Stack {
       },
     );
 
-    new CdnImages(this, genIds.getConstructId('listImages'), {
-      imagesBucket: s3BucketImageProcessing,
+    const { domain } = new CdnImages(
+      this,
+      genIds.getConstructId('listImages'),
+      {
+        imagesBucket: s3BucketImageProcessing,
+      },
+    );
+
+    new ListImages(this, genIds.getConstructId('listImagesFunction'), {
+      bucketProcessing: s3BucketImageProcessing,
+      cdn: domain,
+      imageResorceThumbnail,
     });
 
     new CfnOutput(this, genIds.getConstructId('apiUrl'), {

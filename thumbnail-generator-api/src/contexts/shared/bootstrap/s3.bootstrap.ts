@@ -4,6 +4,8 @@ import {
   PutObjectCommandInput,
   GetObjectCommand,
   GetObjectCommandInput,
+  ListObjectsV2Command,
+  ListObjectsV2CommandInput,
 } from '@aws-sdk/client-s3';
 import { Options, Upload } from '@aws-sdk/lib-storage';
 
@@ -15,6 +17,11 @@ export class S3Bootstrap {
       this.client = new S3Client({});
     }
     return this.client;
+  }
+
+  async getListObject(input: ListObjectsV2CommandInput) {
+    const command = new ListObjectsV2Command(input);
+    return this.getS3Client().send(command);
   }
 
   putObject(input: PutObjectCommandInput) {

@@ -8,10 +8,13 @@ interface CdnImagesProps {
 }
 
 export class CdnImages extends Construct {
+  public domain: string;
+
   constructor(scope: Construct, id: string, props: CdnImagesProps) {
     super(scope, id);
-    new Distribution(this, `${id}CloudFront`, {
+    const cdn = new Distribution(this, `${id}CloudFront`, {
       defaultBehavior: { origin: new S3Origin(props.imagesBucket) },
     });
+    this.domain = cdn.domainName;
   }
 }

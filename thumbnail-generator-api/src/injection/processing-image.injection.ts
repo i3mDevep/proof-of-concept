@@ -1,5 +1,7 @@
 import { ImagePersistence } from '../contexts/processing-image/application/image-persistence.application';
 import { ImageThumbnail } from '../contexts/processing-image/application/image-thumbnail.application';
+import { ImageList } from '../contexts/processing-image/application/image-list.application';
+
 import { ImageInfrastructure } from '../contexts/processing-image/infrastructure/image-aws.infrastructure';
 
 const {
@@ -7,15 +9,15 @@ const {
   BUCKET_PROCESSING_IMAGE = 'bucket-processing-image--dev',
 } = process.env;
 
-if (!BUCKET_CONVERT_IMAGE || !BUCKET_PROCESSING_IMAGE)
-  throw new Error('BUCKET_CONVERT_IMAGE or BUCKET_PROCESSING_IMAGE dont exist');
-
-const imageModule = new ImagePersistence(
-  new ImageInfrastructure(BUCKET_PROCESSING_IMAGE, BUCKET_CONVERT_IMAGE),
+const awsInfrastructire = new ImageInfrastructure(
+  BUCKET_PROCESSING_IMAGE,
+  BUCKET_CONVERT_IMAGE,
 );
 
-const thumbnailImagesModule = new ImageThumbnail(
-  new ImageInfrastructure(BUCKET_PROCESSING_IMAGE, BUCKET_CONVERT_IMAGE),
-);
+const imageModule = new ImagePersistence(awsInfrastructire);
 
-export { imageModule, thumbnailImagesModule };
+const thumbnailImagesModule = new ImageThumbnail(awsInfrastructire);
+
+const imageListModule = new ImageList(awsInfrastructire);
+
+export { imageModule, thumbnailImagesModule, imageListModule };
