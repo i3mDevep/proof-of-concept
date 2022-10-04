@@ -1,25 +1,33 @@
-import { useEffect, useState } from 'react';
-import { FileUploader } from 'react-drag-drop-files';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { FileUploader } from "react-drag-drop-files";
+import { observer } from "mobx-react-lite";
 
-const fileTypes = ['JPG', 'PNG'];
+import "./App.css";
+import { useRootStore } from "./provider/root-store";
+import { ImagesList } from "./components/ImagesList";
+import { Preview } from "./components/UploadImage/Preview";
+import { Box } from "@mui/material";
+import { SinapsisHeader } from "./components/SinapsisHeader";
 
-const convertToBase64 = (file: Blob) => new Promise((resolve, reject) => {
-  const fileReader = new FileReader();
-  fileReader.readAsDataURL(file);
-  fileReader.onload = () => {
-    resolve(fileReader.result);
-  };
-  fileReader.onerror = (error) => {
-    reject(error);
-  };
-});
+const fileTypes = ["JPG", "PNG"];
 
-function App() {
-  const [count, setCount] = useState(0);
+const convertToBase64 = (file: Blob) =>
+  new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+
+const App = observer(() => {
   const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState<string>('');
+  const [preview, setPreview] = useState<string>("");
+  const rootStore = useRootStore();
+
   useEffect(() => {
     if (!file) return;
     convertToBase64(file).then((url) => setPreview(url as string));
@@ -28,39 +36,24 @@ function App() {
   const handleChange = (value: any) => {
     setFile(value);
   };
-  console.log({ file, preview });
+
   return (
     <div className="App">
+      <SinapsisHeader color="#ffff" />
       <div>
-        <FileUploader multiple={false} handleChange={handleChange} name="file" types={fileTypes} />
-        <img alt="" src={preview} />
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <FileUploader
+          multiple={false}
+          handleChange={handleChange}
+          name="file"
+          types={fileTypes}
+        />
+        <Box sx={{ marginTop: 3 }}>
+          <Preview src={preview} />
+        </Box>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((p) => p + 1)}>
-          count is
-          {' '}
-          {count}
-        </button>
-        <p>
-          Edit
-          {' '}
-          <code>src/App.tsx</code>
-          {' '}
-          and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ImagesList />
     </div>
   );
-}
+});
 
 export default App;
