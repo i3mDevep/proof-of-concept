@@ -9,6 +9,9 @@ import "./index.css";
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      main: '#ffc901'
+    }
   },
 });
 

@@ -1,7 +1,7 @@
 import { Box } from "@mui/system";
 
 interface PreviewProps {
-  src: string;
+  src: string | undefined;
 }
 
 export const Preview = ({ src }: PreviewProps) => {

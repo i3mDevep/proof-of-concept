@@ -20,7 +20,7 @@ export const ImageItem = ({ id, urlOriginal, otherSizes }: ImageItemProps) => {
       </ListItemAvatar>
       <ListItemText
         primary={
-          <Link href={urlOriginal} target="_blank">
+          <Link href={urlOriginal} sx={{ color: "white" }} target="_blank">
             Original image
           </Link>
         }

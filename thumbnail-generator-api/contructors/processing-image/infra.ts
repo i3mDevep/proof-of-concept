@@ -45,6 +45,7 @@ export class ProcessingImage extends Construct {
         runtime: lambda.Runtime.NODEJS_16_X,
         architecture: Architecture.ARM_64,
         timeout: Duration.seconds(60),
+        memorySize: 512,
         bundling: {
           nodeModules: ['@aws-sdk/client-s3', '@aws-sdk/lib-storage'],
         },

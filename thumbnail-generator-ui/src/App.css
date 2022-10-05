@@ -16,6 +16,14 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.custom_file_uploader path {
+  fill: #ffc901;
+}
+
+.custom_file_uploader {
+  border: dashed 2px #ffc901 !important;
+}
+
 
 @keyframes logo-spin {
   from {
