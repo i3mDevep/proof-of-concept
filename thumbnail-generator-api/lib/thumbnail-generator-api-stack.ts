@@ -11,6 +11,7 @@ import {
 } from '../environment/thumbnail.environment';
 import { CdnImages } from '../contructors/cdn-images/infra';
 import { ListImages } from '../contructors/list-images/infra';
+import { AppFrontend } from '../contructors/app-frontend/infra';
 
 export class ThumbnailGeneratorApiStack extends cdk.Stack {
   constructor(
@@ -79,6 +80,8 @@ export class ThumbnailGeneratorApiStack extends cdk.Stack {
       cdn: domain,
       imageResorceThumbnail,
     });
+
+    new AppFrontend(this, genIds.getConstructId('frontendApp'));
 
     new CfnOutput(this, genIds.getConstructId('apiUrl'), {
       value: apiThumbnail.url,
