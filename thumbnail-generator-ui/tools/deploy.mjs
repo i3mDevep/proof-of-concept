@@ -30,3 +30,7 @@ try {
 } catch (error) {
   console.error("s3 error", error);
 }
+
+// Clear cache cloudFront optional
+// aws configure set preview.cloudfront true --profile me
+// aws cloudfront create-invalidation --distribution-id {ID_CLOUD_FRONT} --paths "/index.html" --profile me
