@@ -4,24 +4,26 @@ import {
   Avatar,
   ListItemText,
   Link,
+  Typography,
 } from "@mui/material";
 
 interface ImageItemProps {
   id: string;
+  urlPreview?: string;
   urlOriginal: string;
   otherSizes: string[];
 }
 
-export const ImageItem = ({ id, urlOriginal, otherSizes }: ImageItemProps) => {
+export const ImageItem = ({ id, urlOriginal, urlPreview, otherSizes }: ImageItemProps) => {
   return (
     <ListItem alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar alt={urlOriginal} src={urlOriginal} variant="square" />
+        <Avatar alt={urlOriginal} src={urlPreview || urlOriginal} variant="square" />
       </ListItemAvatar>
       <ListItemText
         primary={
           <Link href={urlOriginal} sx={{ color: "white" }} target="_blank">
-            Original image
+            See original image
           </Link>
         }
         secondary={
@@ -39,6 +41,9 @@ export const ImageItem = ({ id, urlOriginal, otherSizes }: ImageItemProps) => {
                 </Link>
               </span>
             ))}
+            <Typography variant="caption" sx={{ display: "block" }}>
+              You can also select these sizes..
+            </Typography>
           </>
         }
       />

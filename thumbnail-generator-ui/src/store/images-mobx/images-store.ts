@@ -9,6 +9,7 @@ export class ImagesStore {
   imagenFileUpload: ImageFileDomain | null = null;
   isLoading = true;
   sendFileToServerSuccess = false;
+  errorMessage = "";
   urlApi: string;
 
   constructor(urlApi: string) {
@@ -45,6 +46,7 @@ export class ImagesStore {
 
   resetSendFileToServerSuccess() {
     this.sendFileToServerSuccess = false;
+    this.errorMessage = "";
   }
 
   async sendFileToServer() {
@@ -55,7 +57,9 @@ export class ImagesStore {
         imagen: this.imagenFileUpload.dataBase64,
       });
       this.sendFileToServerSuccess = true;
+      this.errorMessage = "";
     } catch (error: any) {
+      this.errorMessage = error?.response?.data?.message ?? "Error unknow";
       this.sendFileToServerSuccess = false;
     }
     this.imagenFileUpload.uploadingServer = false;

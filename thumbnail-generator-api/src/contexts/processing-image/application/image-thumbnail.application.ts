@@ -22,19 +22,37 @@ export class ImageThumbnail {
       ),
     );
 
-    await this.operations.persistenceBatchImages([
-      new ImageProcessing({
-        ...imageOriginal.getAttributes(),
-        id: ImageThumbnail.renameImage({
-          origin: imageOriginal.getAttributes().id,
-          custom: 'original',
-        }),
+    const imageResizePreview = await ThumbnailServices.thumbnailImage({
+      image: imageOriginal.getAttributes().content,
+      heigth: 120,
+      width: ThumbnailServices.getMeasureLinear(),
+    });
+
+    const imageCopyOriginal = new ImageProcessing({
+      ...imageOriginal.getAttributes(),
+      id: ThumbnailServices.renameImage({
+        origin: imageOriginal.getAttributes().id,
+        custom: 'original',
       }),
+    });
+
+    const imagePreview = new ImageProcessing({
+      ...imageOriginal.getAttributes(),
+      content: imageResizePreview.imagesResize,
+      id: ThumbnailServices.renameImage({
+        origin: imageOriginal.getAttributes().id,
+        custom: 'preview',
+      }),
+    });
+
+    await this.operations.persistenceBatchImages([
+      imagePreview,
+      imageCopyOriginal,
       ...imagesResizes.map(
         (iresize) =>
           new ImageProcessing({
             ...imageOriginal.getAttributes(),
-            id: ImageThumbnail.renameImage({
+            id: ThumbnailServices.renameImage({
               origin: imageOriginal.getAttributes().id,
               ...iresize,
             }),
@@ -42,20 +60,5 @@ export class ImageThumbnail {
           }),
       ),
     ]);
-  };
-
-  private static renameImage = ({
-    origin,
-    width,
-    heigth,
-    custom,
-  }: {
-    origin: string;
-    width?: number;
-    heigth?: number;
-    custom?: string;
-  }) => {
-    const nameImage = custom || `${width}X${heigth}`;
-    return `${origin.split('.')[0]}/${nameImage}.${origin.split('.')[1]}`;
   };
 }

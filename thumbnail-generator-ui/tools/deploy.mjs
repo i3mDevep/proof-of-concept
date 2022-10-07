@@ -1,9 +1,14 @@
+import { config } from "dotenv";
 import { exec } from "child_process";
 import { promisify } from "util";
 
+config({ path: `.env.${process.env.NODE_ENV}` });
+
+const { VITE_BUCKET_FRONTEND, AWS_PROFILE } = process.env;
+
 const execAsync = promisify(exec);
-const BucketUriFrontent = "s3://thumbnail-cdn-app--dev";
-const profile = "me";
+const BucketUriFrontent = VITE_BUCKET_FRONTEND;
+const profile = AWS_PROFILE || "default";
 
 // Build process
 try {

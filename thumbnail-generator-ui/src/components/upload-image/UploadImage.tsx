@@ -5,6 +5,7 @@ import { useRootStore } from "../../provider/root-store";
 import { Preview } from "./Preview";
 import { SaveImage } from "./SaveImage";
 import { NotificationSaved } from "./NotificationSaved";
+import { NotificationError } from "./NotificationError";
 
 const fileTypes = ["JPG", "PNG"];
 
@@ -30,6 +31,7 @@ export const UploadImage = observer(() => {
         />
         <SaveImage rootStore={rootStore} />
         <NotificationSaved rootStore={rootStore} />
+        <NotificationError rootStore={rootStore} />
       </Box>
     </Box>
   );

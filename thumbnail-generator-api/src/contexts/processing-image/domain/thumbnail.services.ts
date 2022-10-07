@@ -16,4 +16,23 @@ export class ThumbnailServices {
       .getBufferAsync(Jimp.MIME_PNG);
     return { imagesResize, width, heigth };
   };
+
+  public static renameImage = ({
+    origin,
+    width,
+    heigth,
+    custom,
+  }: {
+    origin: string;
+    width?: number;
+    heigth?: number;
+    custom?: string;
+  }) => {
+    const nameImage = custom || `${width}X${heigth}`;
+    return `${origin.split('.')[0]}/${nameImage}.${origin.split('.')[1]}`;
+  };
+
+  static getMeasureLinear() {
+    return Jimp.AUTO;
+  }
 }
