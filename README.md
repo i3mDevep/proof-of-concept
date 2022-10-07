@@ -1,47 +1,6 @@
-# Sinapsis Technical PoC
-
-## Intro:
-
-Inside each folder you'll find a README file containing the instructions for the missions.
-Each mission is structured as follows:
-
-- There is a goal (AKA: _what_ you're building)
-- There are a set of requirements (AKA: constraints on _how_ you build it)
-- There are a set grading guidelines. This is how we'll evaluate the PoC
-
-## Instructions:
-
-1. Fork this repo!
-2. Pick one mission from the root folder and solve it
-3. Complete as many missions as you want!
-4. Send us your repo url to `jobs at sinapsis.co`
-
-## What's next?
-
-We'll contact you after reviewing your submission. Be ready for a show and tell describing your solution.
-
 # **Sinapsis Technical PoC**
 
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-
 <a name="readme-top"></a>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -54,10 +13,10 @@ We'll contact you after reviewing your submission. Be ready for a show and tell 
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/sinapsis-logo.png" alt="Logo" width="100">
+    <img src="images/sinapsis-logo.png" alt="Logo" width="150">
   </a>
 
-  <h3 align="center">Thubnail generator</h3>
+  <h3 align="center">Thumbnail generator</h3>
 
   <p align="center">
     This amazing project allows you to save images and three different dimensions of it
@@ -66,31 +25,6 @@ We'll contact you after reviewing your submission. Be ready for a show and tell 
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 
@@ -116,14 +50,10 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-- [![Next][next.js]][next-url]
+- [![Node][node.js]][node-url]
 - [![React][react.js]][react-url]
-- [![Vue][vue.js]][vue-url]
-- [![Angular][angular.io]][angular-url]
-- [![Svelte][svelte.dev]][svelte-url]
-- [![Laravel][laravel.com]][laravel-url]
-- [![Bootstrap][bootstrap.com]][bootstrap-url]
-- [![JQuery][jquery.com]][jquery-url]
+- [![Typescript][typescript.js]][typescript-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -259,8 +189,12 @@ Use this space to list resources you find helpful and would like to give credit 
 [product-screenshot]: images/screenshot.png
 [next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [next-url]: https://nextjs.org/
+[typescript.js]: https://www.typescriptlang.org
+[typescript-url]: https://img.shields.io/badge/-Typescript-black?logo=typescript
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
+[node.js]: https://nodejs.org/en/
+[node-url]: https://img.shields.io/badge/Node-026e00?style=for-the-badge&logo=node&logoColor=61DAFB
 [vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
 [vue-url]: https://vuejs.org/
 [angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
