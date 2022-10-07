@@ -6,6 +6,7 @@ import {
 interface EnvironmentProps {
   BUCKET_CONVERT_IMAGE: string;
   BUCKET_PROCESSING_IMAGE: string;
+  BUCKET_CDN_FRONTEND: string;
 }
 
 export class ThumbnailEnvironment {
@@ -16,6 +17,7 @@ export class ThumbnailEnvironment {
       {
         BUCKET_CONVERT_IMAGE: 'bucket-convert-image',
         BUCKET_PROCESSING_IMAGE: 'bucket-processing-image',
+        BUCKET_CDN_FRONTEND: 'thumbnail-cdn-app',
       },
       currentStage,
     );

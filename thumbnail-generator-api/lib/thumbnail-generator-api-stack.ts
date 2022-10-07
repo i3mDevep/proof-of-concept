@@ -25,8 +25,11 @@ export class ThumbnailGeneratorApiStack extends cdk.Stack {
 
     const genIds = new CreateConstructsFormat(projectName, stage);
     const thumbnailEnvironment = new ThumbnailEnvironment(stage);
-    const { BUCKET_CONVERT_IMAGE, BUCKET_PROCESSING_IMAGE } =
-      thumbnailEnvironment.config.getEnvironment();
+    const {
+      BUCKET_CONVERT_IMAGE,
+      BUCKET_PROCESSING_IMAGE,
+      BUCKET_CDN_FRONTEND,
+    } = thumbnailEnvironment.config.getEnvironment();
 
     const apiThumbnail = new apigateway.RestApi(
       this,
@@ -81,10 +84,24 @@ export class ThumbnailGeneratorApiStack extends cdk.Stack {
       imageResorceThumbnail,
     });
 
-    new AppFrontend(this, genIds.getConstructId('frontendApp'));
+    const { cdnFrontend, s3BuildAppFrontend } = new AppFrontend(
+      this,
+      genIds.getConstructId('frontendApp'),
+      {
+        bucketCndFrontend: BUCKET_CDN_FRONTEND,
+      },
+    );
 
     new CfnOutput(this, genIds.getConstructId('apiUrl'), {
       value: apiThumbnail.url,
+    });
+
+    new CfnOutput(this, genIds.getConstructId('cdn-images'), {
+      value: cdnFrontend.domainName,
+    });
+
+    new CfnOutput(this, genIds.getConstructId('bucket-frontend-uri'), {
+      value: s3BuildAppFrontend.s3UrlForObject(),
     });
   }
 }

@@ -16,7 +16,7 @@ export const UploadImage = observer(() => {
   };
 
   return (
-    <>
+    <Box sx={{ maxWidth: 360 }}>
       <FileUploader
         multiple={false}
         handleChange={handleChange}
@@ -31,6 +31,6 @@ export const UploadImage = observer(() => {
         <SaveImage rootStore={rootStore} />
         <NotificationSaved rootStore={rootStore} />
       </Box>
-    </>
+    </Box>
   );
 });

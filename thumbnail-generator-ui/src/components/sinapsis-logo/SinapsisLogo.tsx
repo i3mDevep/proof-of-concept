@@ -6,7 +6,7 @@ export const SinapsisLogo = ({ color }: { color: string }) => {
       version="1.1"
       x="0"
       y="0"
-      style={{ height: 48, position: "fixed", left: 0, top: 0, margin: 10 }}
+      style={{ height: 48 }}
       viewBox="0 0 187.4 48.5"
     >
       <path

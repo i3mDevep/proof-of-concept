@@ -6,10 +6,16 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <SinapsisLogo color="#ffff" />
-      <UploadImage />
-      <ImagesList />
+    <div className="wrapper-app">
+      <header className="main-head">
+        <SinapsisLogo color="#ffff" />
+      </header>
+      <div className="content-upload">
+        <UploadImage />
+      </div>
+      <div className="list-images">
+        <ImagesList />
+      </div>
     </div>
   );
 };
