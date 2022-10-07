@@ -57,7 +57,7 @@ To perform the deployment you only have to enter the thumbnail-generator-api/ fo
    ```sh
    npm run deploy
    ```
-2. When the process finishes save the output valuesin the terminal, these will be used as environment variables for the frontend 
+2. When the process finishes save the output values in the terminal, these will be used as environment variables for the frontend 
    <img src="images/example-output.png" alt="example-output" height="150">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
