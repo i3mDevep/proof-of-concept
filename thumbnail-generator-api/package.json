@@ -10,7 +10,7 @@
     "cdk": "cdk",
     "clean": "rm -rf ./dist",
     "build": "tsc",
-    "deploy:dev": "cdk deploy --profile me",
+    "deploy": "cdk deploy",
     "lint": "eslint '*/**/*.{js,ts}'",
     "prettier": "prettier --write '*/**/*.{js,ts}'"
   },
