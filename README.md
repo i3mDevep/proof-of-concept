@@ -23,7 +23,7 @@
 
 ## About The Project
 
-![Alt Text](https://github.com/i3mDevep/proof-of-concept/blob/master/images/app-example.gif)
+[![Product Name Screen Shot][product-screenshot]](https://d36ixschaofsn3.cloudfront.net/)
 
 
 
