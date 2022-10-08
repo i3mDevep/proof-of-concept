@@ -60,8 +60,25 @@ To perform the deployment you only have to enter the thumbnail-generator-api/ fo
 2. When the process finishes save the output values in the terminal, these will be used as environment variables for the frontend 
    <img src="images/example-output.png" alt="example-output" height="150">
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Thumbnail ui
 
+This project was built with react JS, it is recommended to use version 16 of node JS.
+Enter the thumbnail-generator-ui/ 
+
+### Run locally
+  - Install dependencies
+  ```sh
+    npm install
+  ```
+  - Run app
+  ```sh
+    npm run dev
+  ```
+### Set environment variables
+- VITE_API_THUMBNAIL= This variable is the url of the backend api that we deployed in the previous step(thumbnailGeneratorDevapiUrldev).
+- VITE_BUCKET_FRONTEND= This variable is used for the deployment of the application in aws cloud front(thumbnailGeneratorDevbucketfrontenduridev).
+- AWS_PROFILE= It is only necessary if you want to modify the profile of your AWS account (default)
+<img src="images/example-env.png" alt="env">
 <!-- USAGE EXAMPLES -->
 
 <!-- ROADMAP -->
