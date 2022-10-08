@@ -24,6 +24,7 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://d36ixschaofsn3.cloudfront.net/)
+![](images/app-example.gif)
 
 You can store the images you need, keeping in mind that only JPGE and PNG images are allowed, in addition to the fact that the image cannot be larger than 5MB.
 
@@ -111,7 +112,7 @@ Enter the thumbnail-generator-ui/
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/app-example.gif
+[product-screenshot]: images/app-mobile.png
 [next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [next-url]: https://nextjs.org/
 [typescript.js]: https://www.typescriptlang.org
