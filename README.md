@@ -23,8 +23,9 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://d36ixschaofsn3.cloudfront.net/)
-![](images/app-example.gif)
+![Alt Text](https://github.com/i3mDevep/proof-of-concept/blob/master/images/app-example.gif)
+
+
 
 You can store the images you need, keeping in mind that only JPGE and PNG images are allowed, in addition to the fact that the image cannot be larger than 5MB.
 
