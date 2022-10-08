@@ -35,7 +35,7 @@ export class ImagesStore {
 
   async loadImages() {
     this.isLoading = true;
-    const fetchImagesList = await axios.get(this.urlApi);
+    const fetchImagesList = await axios.get(`${this.urlApi}/image`);
     runInAction(() => {
       fetchImagesList.data.message.forEach((images: string) =>
         this.updateImagesFromServer(images)
@@ -53,7 +53,7 @@ export class ImagesStore {
     if (!this.imagenFileUpload) return;
     this.imagenFileUpload.uploadingServer = true;
     try {
-      await axios.post(this.urlApi, {
+      await axios.post(`${this.urlApi}/image`, {
         imagen: this.imagenFileUpload.dataBase64,
       });
       this.sendFileToServerSuccess = true;
